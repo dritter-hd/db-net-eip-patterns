@@ -19,3 +19,7 @@ Enterprise Integration Pattern (EIP) demonstrator as (timed) db-net extension of
 6. Right click on the connect artifact in the model and select 'excecute ML' OR select ML in the CPN Toolbar and drag and drop there
 7. Enter the port configured in the connect artifact into the extension GUI and connect CPN/COMM (default 9001)
 8. Start executing enabled transitions
+
+## License
+
+Please note that the demonstrator is a CPN Tools extension, and thus uses the [Access/CPN](http://cpntools.org/2018/01/15/license-for-access-cpn/) module, which comes with a LGPL license. However, Access/CPN references the [CPN Tools Simulator](http://cpntools.org/2018/01/15/license-for-cpn-tools-simulator/) module, which is dual-licensed and can be used either under the GNU General Public License (GPL) version 2 or by the below license, which is a 4-clause BSD license.
