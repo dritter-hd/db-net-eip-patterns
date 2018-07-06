@@ -23,3 +23,16 @@ Enterprise Integration Pattern (EIP) demonstrator as (timed) db-net extension of
 ## License
 
 Please note that the demonstrator is a CPN Tools extension, and thus uses the [Access/CPN](http://cpntools.org/2018/01/15/license-for-access-cpn/) module, which comes with a LGPL license. However, Access/CPN references the [CPN Tools Simulator](http://cpntools.org/2018/01/15/license-for-cpn-tools-simulator/) module, which is dual-licensed and can be used either under the GNU General Public License (GPL) version 2 or by the below license, which is a 4-clause BSD license.
+
+## Citation
+
+If you find this work useful for your research, please cite:
+
+@inproceedings{RRMMRS2018,
+  title={Formalizing Application Integration Patterns},
+  author={Ritter, Daniel and Rinderle-Ma, Stefanie and Montali, Marco and Rivkin, Andrey and Sinha, Aman},
+  booktitle={2018 IEEE 22nd International Enterprise Distributed Object Computing Conference (EDOC)},
+  pages={--},
+  year={2018},
+  organization={IEEE}
+}
