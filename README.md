@@ -9,7 +9,7 @@ Enterprise Integration Pattern (EIP) demonstrator as (timed) db-net extension of
 4. CPN Tools version 4 (eg, from [CPN Tools](http://cpntools.org/2018/01/16/download/))
 5. PostgresSQL version 10 (eg, from [PostgresSQL](https://www.postgresql.org/download/))
 
-## Running the patterns
+## Simulating the patterns
 
 1. Run the dbNet.jar to start the extension server (java -jar dbNet.jar); check the icon in the toolbar and double-click to check that the db-net extension is registered.
 2. start the PostgresSQL database (eg, type Start PostgresSQL 10 in Win10 search field) and load database schema from the pattern foleder, e.g., aggregator.sql (eg, using pgAdmin)
