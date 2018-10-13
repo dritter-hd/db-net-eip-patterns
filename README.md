@@ -37,3 +37,16 @@ If you find this work useful for your research, please cite:
   organization={IEEE}
 }
 ```
+and / or the instructive pattern catalog:
+```
+@article{RRMMRS2018b,
+  author    = {Ritter, Daniel and Rinderle-Ma, Stefanie and Montali, Marco and Rivkin, Andrey and Sinha, Aman},
+  title     = {Catalog of Formalized Application Integration Patterns},
+  journal   = {CoRR},
+  volume    = {abs/1807.03197},
+  year      = {2018},
+  url       = {http://arxiv.org/abs/1807.03197},
+  archivePrefix = {arXiv},
+  eprint    = {1807.03197}
+}
+```
