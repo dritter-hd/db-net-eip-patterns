@@ -28,11 +28,11 @@ Please note that the demonstrator is a CPN Tools extension, and thus uses the [A
 
 If you find this work useful for your research, please cite:
 ```
-@inproceedings{RRMMRS2018,
+@inproceedings{ritter2018formalizing,
   title={Formalizing Application Integration Patterns},
   author={Ritter, Daniel and Rinderle-Ma, Stefanie and Montali, Marco and Rivkin, Andrey and Sinha, Aman},
   booktitle={2018 IEEE 22nd International Enterprise Distributed Object Computing Conference (EDOC)},
-  pages={--},
+  pages={11--20},
   year={2018},
   organization={IEEE}
 }
