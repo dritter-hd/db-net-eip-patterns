@@ -1,5 +1,5 @@
 -- Schema: resequencer
--- DROP SCHEMA resequencer;
+-- DROP SCHEMA resequencer cascade;
 CREATE SCHEMA resequencer
   AUTHORIZATION postgres;
 
