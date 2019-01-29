@@ -132,8 +132,15 @@
           <type>
             <id>MSG</id>
           </type>
-          <id>y</id>
-          <layout>var y : MSG;</layout>
+          <id>msg</id>
+          <layout>var msg: MSG;</layout>
+        </var>
+        <var id="ID1412587187">
+          <type>
+            <id>TMSG</id>
+          </type>
+          <id>tmsg</id>
+          <layout>var tmsg: TMSG;</layout>
         </var>
         <var id="ID1412342207">
           <type>
@@ -159,6 +166,11 @@
           <id>z</id>
           <layout>var z : QUEUE;</layout>
         </var>
+        <ml id="ID1412588608">val timeout = 150:time;
+val timecap = 75;
+          <layout>val timeout = 150:time;
+val timecap = 75;</layout>
+        </ml>
         <ml id="ID1412331967">fun intTime() = IntInf.toInt (time());
           <layout>fun intTime() = IntInf.toInt (time());</layout>
         </ml>
@@ -199,7 +211,7 @@ end;</layout>
                y="0.000000"/>
         <marking x="-5.000000"
                  y="-55.000000"
-                 hidden="false">
+                 hidden="true">
           <snap snap_id="0"
                 anchor.horizontal="2"
                 anchor.vertical="1"/>
@@ -266,7 +278,7 @@ end;</layout>
                 anchor.vertical="0"/>
         </marking>
         <type id="ID1412331506">
-          <posattr x="121.500000"
+          <posattr x="125.000000"
                    y="-611.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -277,7 +289,7 @@ end;</layout>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">MSG</text>
+                version="4.0.1">TMSG</text>
         </type>
         <initmark id="ID1412331507">
           <posattr x="140.000000"
@@ -437,7 +449,7 @@ cap</text>
                 version="4.0.1">GUARD</text>
         </type>
         <initmark id="ID1412479830">
-          <posattr x="131.000000"
+          <posattr x="143.000000"
                    y="-732.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -448,7 +460,7 @@ cap</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">()@150</text>
+                version="4.0.1">()@timeout</text>
         </initmark>
       </place>
       <place id="ID1412503111">
@@ -489,8 +501,8 @@ cap</text>
           <text tool="CPN Tools"
                 version="4.0.1">INT</text>
         </type>
-        <initmark id="ID1412584724">
-          <posattr x="-1.000000"
+        <initmark id="ID1412591593">
+          <posattr x="15.500000"
                    y="-438.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -501,7 +513,7 @@ cap</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">75</text>
+                version="4.0.1">timecap</text>
         </initmark>
       </place>
       <place id="ID1412545840">
@@ -556,6 +568,58 @@ cap</text>
                 version="4.0.1"/>
         </initmark>
       </place>
+      <place id="ID1412586860">
+        <posattr x="504.000000"
+                 y="-588.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <text>out</text>
+        <ellipse w="60.000000"
+                 h="40.000000"/>
+        <token x="-10.000000"
+               y="0.000000"/>
+        <marking x="0.000000"
+                 y="0.000000"
+                 hidden="false">
+          <snap snap_id="0"
+                anchor.horizontal="0"
+                anchor.vertical="0"/>
+        </marking>
+        <type id="ID1412586861">
+          <posattr x="545.000000"
+                   y="-611.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">TMSG</text>
+        </type>
+        <initmark id="ID1412586862">
+          <posattr x="560.000000"
+                   y="-564.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1"/>
+        </initmark>
+      </place>
       <trans id="ID1412331399"
              explicit="false">
         <posattr x="-126.000000"
@@ -588,8 +652,8 @@ message</text>
           <text tool="CPN Tools"
                 version="4.0.1"/>
         </cond>
-        <time id="ID1412331401">
-          <posattr x="-23.500000"
+        <time id="ID1412593842">
+          <posattr x="-67.500000"
                    y="-557.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -600,7 +664,7 @@ message</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">@+expTime(max)</text>
+                version="4.0.1"/>
         </time>
         <code id="ID1412331402">
           <posattr x="-47.500000"
@@ -692,7 +756,7 @@ receive</text>
                 version="4.0.1"/>
         </code>
         <priority id="ID1412581358">
-          <posattr x="16.000000"
+          <posattr x="26.000000"
                    y="-703.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -703,7 +767,7 @@ receive</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1"/>
+                version="4.0.1">P_HIGH</text>
         </priority>
       </trans>
       <trans id="ID1412542457"
@@ -739,7 +803,7 @@ messsages</text>
                 version="4.0.1"/>
         </cond>
         <time id="ID1412542459">
-          <posattr x="432.500000"
+          <posattr x="449.000000"
                    y="-557.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -750,7 +814,7 @@ messsages</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">@+expTime(75)</text>
+                version="4.0.1">@+expTime(timecap)</text>
         </time>
         <code id="ID1412542460">
           <posattr x="413.500000"
@@ -810,7 +874,7 @@ messsages</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">y</text>
+                version="4.0.1">msg</text>
         </annot>
       </arc>
       <arc id="ID1412331540"
@@ -842,7 +906,7 @@ messsages</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">y</text>
+                version="4.0.1">msg@0</text>
         </annot>
       </arc>
       <arc id="ID1412397370"
@@ -862,7 +926,7 @@ messsages</text>
                    currentcyckle="2"/>
         <transend idref="ID1412331399"/>
         <placeend idref="ID1412395523"/>
-        <annot id="ID1412581427">
+        <annot id="ID1412585909">
           <posattr x="-152.000000"
                    y="-514.000000"/>
           <fillattr colour="White"
@@ -953,7 +1017,7 @@ messsages</text>
                     bold="false"/>
         </bendpoint>
         <annot id="ID1412402460">
-          <posattr x="-164.000000"
+          <posattr x="-218.500000"
                    y="-680.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -964,7 +1028,7 @@ messsages</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">u</text>
+                version="4.0.1">u@+expTime(max)</text>
         </annot>
       </arc>
       <arc id="ID1412505145"
@@ -1060,7 +1124,7 @@ messsages</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">y</text>
+                version="4.0.1">tmsg</text>
         </annot>
       </arc>
       <arc id="ID1412546973"
@@ -1080,8 +1144,8 @@ messsages</text>
                    currentcyckle="2"/>
         <transend idref="ID1412529224"/>
         <placeend idref="ID1412545840"/>
-        <annot id="ID1412581428">
-          <posattr x="168.000000"
+        <annot id="ID1412585910">
+          <posattr x="210.000000"
                    y="-661.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -1183,6 +1247,38 @@ messsages</text>
                     bold="false"/>
           <text tool="CPN Tools"
                 version="4.0.1">u</text>
+        </annot>
+      </arc>
+      <arc id="ID1412586901"
+           orientation="TtoP"
+           order="1">
+        <posattr x="0.000000"
+                 y="0.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <arrowattr headsize="1.200000"
+                   currentcyckle="2"/>
+        <transend idref="ID1412542457"/>
+        <placeend idref="ID1412586860"/>
+        <annot id="ID1412586902">
+          <posattr x="425.000000"
+                   y="-577.000000"/>
+          <fillattr colour="White"
+                    pattern="Solid"
+                    filled="false"/>
+          <lineattr colour="Black"
+                    thick="0"
+                    type="Solid"/>
+          <textattr colour="Black"
+                    bold="false"/>
+          <text tool="CPN Tools"
+                version="4.0.1">tmsg</text>
         </annot>
       </arc>
       <constraints/>
@@ -1499,14 +1595,14 @@ to make more realistic destribution)</text>
     </options>
     <binders>
       <cpnbinder id="ID2222"
-                 x="326"
-                 y="79"
+                 x="403"
+                 y="60"
                  width="962"
-                 height="621">
+                 height="562">
         <sheets>
           <cpnsheet id="ID2215"
-                    panx="-66.000000"
-                    pany="-622.000000"
+                    panx="-367.000000"
+                    pany="-605.000000"
                     zoom="1.000000"
                     instance="ID2149">
             <zorder>
@@ -1617,12 +1713,14 @@ to make more realistic destribution)</text>
           <IndexNode expanded="true"/>
           <IndexNode expanded="true"/>
           <IndexNode expanded="true"/>
+          <IndexNode expanded="true"/>
+          <IndexNode expanded="true"/>
+          <IndexNode expanded="true"/>
+          <IndexNode expanded="true"/>
+          <IndexNode expanded="true"/>
           <IndexNode expanded="false"/>
           <IndexNode expanded="true"/>
           <IndexNode expanded="true"/>
-          <IndexNode expanded="true"/>
-          <IndexNode expanded="true"/>
-          <IndexNode expanded="false"/>
           <IndexNode expanded="true"/>
           <IndexNode expanded="true"/>
           <IndexNode expanded="true"/>
