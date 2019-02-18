@@ -1,5 +1,5 @@
--- Schema: aggregator
--- DROP SCHEMA aggregator;
+﻿-- Schema: aggregator
+-- DROP SCHEMA aggregator CASCADE;
 CREATE SCHEMA aggregator
   AUTHORIZATION postgres;
 
