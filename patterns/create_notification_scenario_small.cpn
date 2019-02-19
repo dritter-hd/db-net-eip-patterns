@@ -2311,7 +2311,7 @@ ERP</text>
           <textattr colour="Black"
                     bold="false"/>
         </bendpoint>
-        <annot id="ID1414698930">
+        <annot id="ID1414699029">
           <posattr x="126.000000"
                    y="347.000000"/>
           <fillattr colour="White"
@@ -2356,7 +2356,7 @@ ERP</text>
           <textattr colour="Black"
                     bold="false"/>
         </bendpoint>
-        <annot id="ID1414698931">
+        <annot id="ID1414699030">
           <posattr x="126.000000"
                    y="-157.000000"/>
           <fillattr colour="White"
@@ -2388,7 +2388,7 @@ ERP</text>
                    currentcyckle="2"/>
         <transend idref="ID1414355841"/>
         <placeend idref="ID1414342647"/>
-        <annot id="ID1414698932">
+        <annot id="ID1414699031">
           <posattr x="366.000000"
                    y="95.000000"/>
           <fillattr colour="White"
@@ -2760,7 +2760,7 @@ ERP</text>
         <textattr colour="Black"
                   bold="false"/>
         <label/>
-        <text>view_place : create_notification.IncidentReports: SELECT IncidentReport.id, IncidentReport.mid, IncidentReport.aval FROM create_notification.IncidentReport, create_notification.Machine WHERE Machine.threshold_wrn&lt;IncidentReport.aval;</text>
+        <text>view_place : create_notification.IncidentReports: SELECT DISTINCT IncidentReport.id, IncidentReport.mid, IncidentReport.aval FROM create_notification.IncidentReport, create_notification.Machine WHERE Machine.threshold_wrn&lt;IncidentReport.aval;</text>
       </Aux>
       <Aux id="ID1414530910">
         <posattr x="-1512.000000"
@@ -3050,8 +3050,8 @@ ERP</text>
                  height="817">
         <sheets>
           <cpnsheet id="ID1413155070"
-                    panx="-149.218750"
-                    pany="100.703125"
+                    panx="1312.781250"
+                    pany="89.703125"
                     zoom="1.000000"
                     instance="ID2149">
             <zorder>
