@@ -273,23 +273,23 @@
         <ml id="ID1412972854">fun exQuery(connectionName,query) = ConnManagementLayer.send(connectionName,&quot;exQuery&quot;^&quot;?&quot;^query,stringEncode);
           <layout>fun exQuery(connectionName,query) = ConnManagementLayer.send(connectionName,&quot;exQuery&quot;^&quot;?&quot;^query,stringEncode);</layout>
         </ml>
-        <ml id="ID1412975560">fun getAggregatedMsg(connectionName,seq_id) = (ConnManagementLayer.send(connectionName,&quot;getAggregatedMsg&quot;^&quot;?&quot;^Int.toString seq_id,stringEncode);
+        <ml id="ID1412975560">fun aggregateIncidents(connectionName,seq_id) = (ConnManagementLayer.send(connectionName,&quot;aggregateIncidents&quot;^&quot;?&quot;^Int.toString seq_id,stringEncode);
 ConnManagementLayer.receive(connectionName,stringDecode));
-          <layout>fun getAggregatedMsg(connectionName,seq_id) = (ConnManagementLayer.send(connectionName,&quot;getAggregatedMsg&quot;^&quot;?&quot;^Int.toString seq_id,stringEncode);
+          <layout>fun aggregateIncidents(connectionName,seq_id) = (ConnManagementLayer.send(connectionName,&quot;aggregateIncidents&quot;^&quot;?&quot;^Int.toString seq_id,stringEncode);
 ConnManagementLayer.receive(connectionName,stringDecode));</layout>
         </ml>
-        <ml id="ID1412972627">fun ADD_MSG(mid,ftype,aval,pres) = exQuery(&quot;Create_Notification_Connection&quot;,
-&quot;INSERT INTO create_notification.Messages (mid,ftype,aval,prediction) VALUES(&quot;^ Int.toString mid ^&quot;, &quot;^ FEAT_TYPE.mkstr(ftype) ^ &quot;, &quot; ^ Int.toString aval ^&quot;, &quot;^Bool.toString pres^&quot;);&quot;);
-          <layout>fun ADD_MSG(mid,ftype,aval,pres) = exQuery(&quot;Create_Notification_Connection&quot;,
-&quot;INSERT INTO create_notification.Messages (mid,ftype,aval,prediction) VALUES(&quot;^ Int.toString mid ^&quot;, &quot;^ FEAT_TYPE.mkstr(ftype) ^ &quot;, &quot; ^ Int.toString aval ^&quot;, &quot;^Bool.toString pres^&quot;);&quot;);</layout>
+        <ml id="ID1412972627">fun ADD_MSG(id,mid,ftype,aval,pres) = exQuery(&quot;Create_Notification_Connection&quot;,
+&quot;INSERT INTO create_notification.Messages (msg_id,seq,ftype,aval,pres) VALUES(&quot;^ Int.toString id ^&quot;, &quot;^ Int.toString mid ^&quot;, &apos;&quot;^ ftype ^ &quot;&apos;, &quot; ^ Int.toString aval ^&quot;, &quot;^Bool.toString pres^&quot;);&quot;);
+          <layout>fun ADD_MSG(id,mid,ftype,aval,pres) = exQuery(&quot;Create_Notification_Connection&quot;,
+&quot;INSERT INTO create_notification.Messages (msg_id,seq,ftype,aval,pres) VALUES(&quot;^ Int.toString id ^&quot;, &quot;^ Int.toString mid ^&quot;, &apos;&quot;^ ftype ^ &quot;&apos;, &quot; ^ Int.toString aval ^&quot;, &quot;^Bool.toString pres^&quot;);&quot;);</layout>
         </ml>
-        <ml id="ID1412987516">fun CHANGE_SEQ_STATUS(seq_id,status) = exQuery(&quot;Create_Notification_Connection&quot;,&quot;UPDATE create_notification.Sequences SET STATUS=&quot;^status^&quot; WHERE SEQ=&quot;^ Int.toString seq_id^&quot;);&quot;);
-          <layout>fun CHANGE_SEQ_STATUS(seq_id,status) = exQuery(&quot;Create_Notification_Connection&quot;,&quot;UPDATE create_notification.Sequences SET STATUS=&quot;^status^&quot; WHERE SEQ=&quot;^ Int.toString seq_id^&quot;);&quot;);</layout>
+        <ml id="ID1412987516">fun CHANGE_SEQ_STATUS(seq_id,status) = exQuery(&quot;Create_Notification_Connection&quot;,&quot;UPDATE create_notification.Sequences SET STATUS=&apos;&quot;^status^&quot;&apos; WHERE SEQ=&quot;^ Int.toString seq_id^&quot;;&quot;);
+          <layout>fun CHANGE_SEQ_STATUS(seq_id,status) = exQuery(&quot;Create_Notification_Connection&quot;,&quot;UPDATE create_notification.Sequences SET STATUS=&apos;&quot;^status^&quot;&apos; WHERE SEQ=&quot;^ Int.toString seq_id^&quot;;&quot;);</layout>
         </ml>
         <ml id="ID1414451638">fun DEL_REPORT(id,mid,aval) = exQuery(&quot;Create_Notification_Connection&quot;,
-&quot;DELETE FROM create_notification.IncedentReport (id,name,act_val) WHERE id=&quot;^ Int.toString id ^&quot;, mid=&quot;^ Int.toString mid ^&quot;, act_val=&quot;^Int.toString aval^&quot;);&quot;);
+&quot;DELETE FROM create_notification.IncidentReport WHERE id=&quot;^ Int.toString id ^&quot; and mid=&quot;^ Int.toString mid ^&quot; and aval=&quot;^ Int.toString aval ^&quot;;&quot;);
           <layout>fun DEL_REPORT(id,mid,aval) = exQuery(&quot;Create_Notification_Connection&quot;,
-&quot;DELETE FROM create_notification.IncedentReport (id,name,act_val) WHERE id=&quot;^ Int.toString id ^&quot;, mid=&quot;^ Int.toString mid ^&quot;, act_val=&quot;^Int.toString aval^&quot;);&quot;);</layout>
+&quot;DELETE FROM create_notification.IncidentReport WHERE id=&quot;^ Int.toString id ^&quot; and mid=&quot;^ Int.toString mid ^&quot; and aval=&quot;^ Int.toString aval ^&quot;;&quot;);</layout>
         </ml>
       </block>
     </globbox>
@@ -1071,7 +1071,7 @@ message</text>
                 version="4.0.1"/>
         </time>
         <code id="ID1412696940">
-          <posattr x="14.000000"
+          <posattr x="21.500000"
                    y="-251.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -1082,12 +1082,12 @@ message</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">input (mid,ftype,aval,pres);
+                version="4.0.1">input (id,mid,ftype,aval,pres);
 output ();
 action
 let
 in
-ADD_MSG(mid,ftype,aval,pres);
+ADD_MSG(id,mid,ftype,aval,pres);
 ()
 end;</text>
         </code>
@@ -1153,8 +1153,8 @@ message</text>
                 version="4.0.1"/>
         </time>
         <code id="ID1413258252">
-          <posattr x="29.000000"
-                   y="253.000000"/>
+          <posattr x="45.500000"
+                   y="247.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -1164,12 +1164,12 @@ message</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">input (mid,ftype,aval,pres);
+                version="4.0.1">input (id,mid,ftype,aval,pres);
 output ();
 action
 let
 in
-ADD_MSG(mid,ftype,aval,pres);
+ADD_MSG(id,mid,ftype,aval,pres);
 ()
 end;</text>
         </code>
@@ -1615,8 +1615,8 @@ messages</text>
                 version="4.0.1"/>
         </time>
         <code id="ID1414399462">
-          <posattr x="1130.000000"
-                   y="-3.000000"/>
+          <posattr x="1125.000000"
+                   y="-2.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -1630,7 +1630,7 @@ messages</text>
 output (concat_msg);
 action
 let
-val concat_msg = getAggregatedMsg(&quot;Create_Notification_Connection&quot;,seq_id)
+val concat_msg = aggregateIncidents(&quot;Create_Notification_Connection&quot;,seq_id)
 in
 concat_msg
 end;</text>
@@ -1697,8 +1697,8 @@ report</text>
                 version="4.0.1"/>
         </time>
         <code id="ID1414443971">
-          <posattr x="-1621.500000"
-                   y="-3.000000"/>
+          <posattr x="-1626.500000"
+                   y="-5.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -2278,7 +2278,7 @@ ERP</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">(pres,extrep)</text>
+                version="4.0.1">(true,extrep)</text>
         </annot>
       </arc>
       <arc id="ID1414343510"
@@ -2311,7 +2311,7 @@ ERP</text>
           <textattr colour="Black"
                     bold="false"/>
         </bendpoint>
-        <annot id="ID1414695888">
+        <annot id="ID1414698930">
           <posattr x="126.000000"
                    y="347.000000"/>
           <fillattr colour="White"
@@ -2356,7 +2356,7 @@ ERP</text>
           <textattr colour="Black"
                     bold="false"/>
         </bendpoint>
-        <annot id="ID1414695889">
+        <annot id="ID1414698931">
           <posattr x="126.000000"
                    y="-157.000000"/>
           <fillattr colour="White"
@@ -2388,7 +2388,7 @@ ERP</text>
                    currentcyckle="2"/>
         <transend idref="ID1414355841"/>
         <placeend idref="ID1414342647"/>
-        <annot id="ID1414695890">
+        <annot id="ID1414698932">
           <posattr x="366.000000"
                    y="95.000000"/>
           <fillattr colour="White"
@@ -2721,8 +2721,8 @@ ERP</text>
         <text>disconnectDB(&quot;Create_Notification_Connection&quot;)</text>
       </Aux>
       <Aux id="ID1413185163">
-        <posattr x="-67.000000"
-                 y="32.000000"/>
+        <posattr x="-396.000000"
+                 y="145.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -2732,18 +2732,11 @@ ERP</text>
         <textattr colour="Black"
                   bold="false"/>
         <label/>
-        <text>view_place : 
-create_notification.IsFirstInSequence : 
-SELECT DISTINCT Sequences.SEQ,
-NOT EXISTS(
-        SELECT 1 
-        FROM Messages 
-        WHERE Messages.seq = Sequences.SEQ) 
-FROM create_notification.Sequences;</text>
+        <text>view_place : create_notification.IsFirstInSequence : SELECT DISTINCT Sequences.seq, NOT EXISTS(SELECT 1 FROM create_notification.Messages WHERE Messages.seq = Sequences.seq) FROM create_notification.Sequences;</text>
       </Aux>
       <Aux id="ID1413755347">
-        <posattr x="282.000000"
-                 y="-210.000000"/>
+        <posattr x="0.000000"
+                 y="-226.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -2753,9 +2746,7 @@ FROM create_notification.Sequences;</text>
         <textattr colour="Black"
                   bold="false"/>
         <label/>
-        <text>view_place : 
-create_notification.UnmarkedCompleteSequences : 
-SELECT DISTINCT Sequences.SEQ FROM create_notification.Sequences WHERE EXISTS(SELECT 1 FROM Messages WHERE Messages.SEQ = Sequences.seq LIMIT 2) AND Sequences.STATUS IS NULL;</text>
+        <text>view_place : create_notification.UnmarkedCompleteSequences : SELECT DISTINCT Sequences.seq FROM create_notification.Sequences WHERE EXISTS(SELECT 1 FROM create_notification.Messages WHERE Messages.seq = Sequences.seq LIMIT 2) AND Sequences.status IS NULL;</text>
       </Aux>
       <Aux id="ID1414438838">
         <posattr x="-2069.000000"
@@ -2784,6 +2775,20 @@ SELECT DISTINCT Sequences.SEQ FROM create_notification.Sequences WHERE EXISTS(SE
                   bold="false"/>
         <label/>
         <text>view_place : create_notification.Machines: SELECT Machine.id, Machine.name, Machine.threshold_wrn, Machine.ftype FROM create_notification.Machine;</text>
+      </Aux>
+      <Aux id="ID1414698041">
+        <posattr x="-1722.000000"
+                 y="-252.000000"/>
+        <fillattr colour="White"
+                  pattern=""
+                  filled="false"/>
+        <lineattr colour="Black"
+                  thick="1"
+                  type="Solid"/>
+        <textattr colour="Black"
+                  bold="false"/>
+        <label/>
+        <text>ADD_MSG(101,1,&quot;string&quot;,76,true)</text>
       </Aux>
     </page>
     <instances>
@@ -2816,12 +2821,17 @@ SELECT DISTINCT Sequences.SEQ FROM create_notification.Sequences WHERE EXISTS(SE
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10003.enable">
+      <option name="extensions.10001.enable">
         <value>
           <boolean>true</boolean>
         </value>
       </option>
       <option name="extensions.10006.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10003.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -2832,11 +2842,6 @@ SELECT DISTINCT Sequences.SEQ FROM create_notification.Sequences WHERE EXISTS(SE
         </value>
       </option>
       <option name="extensions.10005.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10001.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -3039,14 +3044,14 @@ SELECT DISTINCT Sequences.SEQ FROM create_notification.Sequences WHERE EXISTS(SE
     </options>
     <binders>
       <cpnbinder id="ID1413798895"
-                 x="392"
-                 y="146"
+                 x="448"
+                 y="41"
                  width="1575"
                  height="817">
         <sheets>
           <cpnsheet id="ID1413155070"
-                    panx="982.781250"
-                    pany="-17.296875"
+                    panx="-149.218750"
+                    pany="100.703125"
                     zoom="1.000000"
                     instance="ID2149">
             <zorder>
@@ -3138,12 +3143,12 @@ SELECT DISTINCT Sequences.SEQ FROM create_notification.Sequences WHERE EXISTS(SE
         <IndexNode expanded="false"/>
       </IndexNode>
       <IndexNode expanded="true">
-        <IndexNode expanded="false">
+        <IndexNode expanded="true">
           <IndexNode expanded="true"/>
           <IndexNode expanded="true"/>
           <IndexNode expanded="true"/>
         </IndexNode>
-        <IndexNode expanded="false">
+        <IndexNode expanded="true">
           <IndexNode expanded="true"/>
           <IndexNode expanded="true"/>
           <IndexNode expanded="false"/>
@@ -3168,7 +3173,7 @@ SELECT DISTINCT Sequences.SEQ FROM create_notification.Sequences WHERE EXISTS(SE
           <IndexNode expanded="true"/>
           <IndexNode expanded="true"/>
         </IndexNode>
-        <IndexNode expanded="true">
+        <IndexNode expanded="false">
           <IndexNode expanded="true"/>
           <IndexNode expanded="true"/>
           <IndexNode expanded="true"/>

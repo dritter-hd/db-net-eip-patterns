@@ -1,5 +1,5 @@
 ﻿-- Schema: create_notification
-DROP SCHEMA create_notification CASCADE;
+-- DROP SCHEMA create_notification CASCADE;
 CREATE SCHEMA create_notification
   AUTHORIZATION postgres;
 
@@ -51,7 +51,9 @@ CREATE TABLE create_notification.messages
 (
   msg_id integer,
   seq integer,
-  data character varying
+  ftype text,
+  aval integer,
+  pres boolean
 )
 WITH (
   OIDS=FALSE
@@ -102,3 +104,12 @@ VALUES (107, 2, 13.0);
 INSERT INTO create_notification.incidentreport(
     id, mid, aval)
 VALUES (108, 2, 81.0);
+
+
+INSERT INTO create_notification.sequences(
+            seq, status)
+    VALUES (1, null);
+
+INSERT INTO create_notification.sequences(
+            seq, status)
+    VALUES (2, null);
