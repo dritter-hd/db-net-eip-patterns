@@ -16,9 +16,17 @@ Enterprise Integration Pattern (EIP) demonstrator as (timed) db-net extension of
 3. start the CPN Tools (eg, type CPN Tools in Win10 search field).
 4. Load pattern model, e.g., `aggregator.cpn`, through right-click and `load model`.
 5. (a window will open) enter your database credentials and host / port settings and connect to database (eg, localhost on port `5432` with user credentials).
+![pic1](pictures/db-connector.png#center)
+![pic2](pictures/db-connector-connected.png#center)
+
 6. Right click on the `connect` artifact in the model and select `excecute ML` **OR** select ML in the CPN Toolbar and drag and drop there.
+![pic3](pictures/connectDB-right-click.png#center)
+
+
 7. Enter the port configured in the connect artifact into the extension GUI and connect CPN/COMM (default `9001`).
+![pic4](pictures/comm-connected.png#center)
 8. Start executing enabled transitions.
+![pic5](pictures/fire-transition.png#center)
 
 ## License
 
